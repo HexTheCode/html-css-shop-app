@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+:root {
+  --delay: 1s;
+}
+
+@media (min-width: 720px) {
+  .body-wrapper {
+    grid-template-areas:
+      "header header header header"
+      "popular popular sell sell"
+      "footer footer footer footer" !important;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .item:hover {
+    transform: translateX(1rem) scale(1.2) !important;
+  }
+}
+
+.title {
+  color: black;
+  font-size: 3rem;
+  font-family: "Quicksand", sans-serif;
+}
+
+.wrapper-menu {
+  float: left;
+  background-color: #ffc300;
+  min-height: 100vh;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+  transition: var(--delay);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.nav-menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-left: 2.5rem;
+  padding-right: 2rem;
+}
+.nav-menu .item {
+  display: block;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  position: relative;
+  transition: transform var(--delay);
+}
+.nav-menu .item::before {
+  content: "";
+  position: absolute;
+}
+
+.nav-menu .item:hover {
+  transform: translateX(1.2rem) scale(1.2);
+}
+
+.item-botton:hover {
+  transform: none !important;
+}
+
+.logo {
+  cursor: normal;
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+  font-size: 30px;
+  color: white;
+}
+
+.button {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  font-weight: 600;
+  background: transparent;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 24px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.button::after {
+  content: "👈";
+}
+
+.menu-button:checked ~ .wrapper-menu {
+  transition: var(--delay);
+  transform: translateX(0);
+  width: 0;
+}
+
+.menu-button:checked ~ .wrapper-menu a.item {
+  opacity: 1;
+  transition: var(--delay);
+  transform: translateX(0);
+  width: 0;
+}
+
+.menu-button:checked ~ .button::after {
+  content: "👉";
+}
+.item-botton {
+  position: fixed !important;
+  bottom: 10px;
+}
+
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  min-height: 100vh;
+}
+.body-wrapper {
+  flex-grow: 20;
+
+  display: grid;
+
+  grid-template-areas:
+    "header"
+    "popular"
+    "sell"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+.navbar-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 10px;
+}
+
+.body-wrapper .header {
+  grid-area: header;
+  padding-top: 2rem;
+  padding: 2rem 1rem 0.5rem;
+}
+
+.popular-goods {
+  grid-area: popular;
+}
+
+.sell-goods {
+  grid-area: sell;
+}
+
+.body-wrapper footer {
+  grid-area: footer;
+}
